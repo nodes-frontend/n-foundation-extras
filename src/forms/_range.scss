@@ -1,0 +1,20 @@
+@mixin n-foundation-extras-range-input-fixes {
+  input[type="range"] {
+    margin-bottom: ($slider-handle-height - $slider-height) / 2 + $form-spacing;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin-top: -($slider-handle-height - $slider-height) / 2;
+      width: $slider-handle-width;
+      height: $slider-handle-height;
+
+      border: none;
+      background: $slider-handle-background;
+
+      @if has-value($slider-radius) {
+        border-radius: $slider-radius;
+      }
+    }
+  }
+}

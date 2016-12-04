@@ -1,0 +1,29 @@
+$nFoundation-oc-palettes: (
+	$oc-gray-list,
+	$oc-red-list
+);
+$info-color: $oc-blue-3;
+
+$global-weight-light: 300;
+
+$system-font-families: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$list-group-margin: 0 0 $global-margin;
+$list-group-item-padding: 1rem;
+$list-group-item-title-padding: 0.5rem 1rem;
+$list-group-item-title-font-weight: bold;
+$list-group-item-title-background: $light-gray;
+$list-group-item-title-color: $dark-gray;
+$list-group-item-title-font-size: 0.85rem;
+$list-group-item-background: $white;
+$list-group-item-background-active: $primary-color;
+$list-group-item-background-disabled: $light-gray;
+$list-group-item-color-active: $white;
+$list-group-item-color-disabled: $dark-gray;
+$list-group-item-cursor-disabled: not-allowed;
+$list-group-item-border-width: 1px;
+$list-group-item-border-color: $light-gray;
+$list-group-item-border-color-active: $primary-color;
+$list-group-item-border-radius: $global-radius;
+
+

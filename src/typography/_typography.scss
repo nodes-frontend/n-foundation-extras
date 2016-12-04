@@ -1,0 +1,23 @@
+$system-font-families: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$global-weight-light: 300 !default;
+
+@mixin n-foundation-extras-os-font-families {
+	body {
+		font-family: $system-font-families;
+	}
+	@include headings() {
+		font-family: $system-font-families;
+	}
+}
+
+@mixin n-foundation-extras-font-weights {
+	@include headings() {
+		&.text-weight-light {
+			font-weight: $global-weight-light;
+		}
+	}
+	.text-weight-light,
+	p.text-weight-light {
+		font-weight: $global-weight-light;
+	}
+}

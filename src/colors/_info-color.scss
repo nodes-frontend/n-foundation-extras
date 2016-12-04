@@ -1,0 +1,38 @@
+$info-color: $oc-blue-3 !default;
+
+@mixin n-foundation-extras-info-color {
+	button.info,
+	.button.info {
+		@include button-style($info-color, auto, auto);
+		&.hollow {
+			@include button-hollow;
+			@include button-hollow-style($info-color);
+		}
+	}
+
+	.button-group.info {
+		button,
+		.button {
+			@include button-style($info-color, auto, auto);
+			&.hollow {
+				@include button-hollow;
+				@include button-hollow-style($info-color);
+			}
+		}
+	}
+
+	.callout.info {
+		@include callout-style($info-color);
+	}
+
+	.badge.info,
+	.label.info {
+		background: $info-color;
+		color: foreground($info-color);
+	}
+
+	.progress.info .progress-meter,
+	.progress .progress-meter.info {
+		background-color: $info-color;
+	}
+}

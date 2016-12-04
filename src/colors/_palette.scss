@@ -1,0 +1,54 @@
+@mixin n-foundation-extras-foundation-palette {
+	@each $key, $value in $foundation-palette {
+		.background-color-#{$key} {
+			background-color: $value;
+		}
+		.text-color-#{$key} {
+			color: $value;
+		}
+	}
+
+	.background-color-light-gray {
+		background-color: $light-gray;
+	}
+	.background-color-medium-gray {
+		background-color: $medium-gray;
+	}
+	.background-color-dark-gray {
+		background-color: $dark-gray;
+	}
+	.background-color-black {
+		background-color: $black;
+	}
+	.background-color-white {
+		background-color: $white;
+	}
+	.text-color-light-gray {
+		color: $light-gray;
+	}
+	.text-color-medium-gray {
+		color: $medium-gray;
+	}
+	.text-color-dark-gray {
+		color: $dark-gray;
+	}
+	.text-color-black {
+		color: $black;
+	}
+	.text-color-white {
+		color: $white;
+	}
+}
+
+@mixin n-foundation-extras-oc-palette {
+	@each $key, $value in $oc-color-list {
+		@each $k, $v in $key {
+			.background-color-#{$value}-#{$k} {
+				background-color: $v;
+			}
+			.text-color-#{$value}-#{$k} {
+				color: $v;
+			}
+		}
+	}
+}

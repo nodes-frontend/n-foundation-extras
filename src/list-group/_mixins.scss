@@ -1,0 +1,81 @@
+@mixin list-group-item-variant($state, $background, $color) {
+
+	.list-group__item:not(button):not(.button) {
+		&.#{$state} {
+			@include callout-style($background);
+			color: $background;
+
+			&.active {
+				@include button-style(
+					$background,
+					auto,
+					auto
+				);
+
+				border-color: transparent;
+
+				&:hover,
+				&:focus,
+				&:active {
+					background-color: $background;
+				}
+			}
+
+			&.disabled {
+				color: lighten($background, 25%);
+				.badge,
+				.label {
+					background-color: lighten($background, 25%);
+					color: $color;
+				}
+			}
+		}
+	}
+
+	button.list-group__item.#{$state},
+	.button.list-group__item.#{$state} {
+		.badge,
+		.label {
+			background-color: $color;
+			color: $background;
+		}
+
+		&.disabled,
+		&:disabled {
+			background-color: lighten($background, 25%);
+			color: darken($black, 25%);
+		}
+	}
+
+	//a.list-group__item.#{$state} {
+	//	@include button-style(
+	//		$background,
+	//		auto,
+	//		auto
+	//	);
+	//
+	//	&.disabled,
+	//	&:disabled {
+	//		@include button-disabled($background);
+	//	}
+	//
+	//	border-color: transparent;
+	//
+	//	.label,
+	//	.badge {
+	//		color: $background;
+	//		background-color: $color;
+	//	}
+	//}
+
+	.list-group__item.#{$state} .badge,
+	.list-group__item.#{$state} .label {
+		color: $color;
+		background-color: $background;
+	}
+	.list-group__item.#{$state}.active .badge,
+	.list-group__item.#{$state}.active .label {
+		color: $background;
+		background-color: $color;
+	}
+}

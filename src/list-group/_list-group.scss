@@ -1,0 +1,158 @@
+$list-group-margin: 0 0 $global-margin !default;
+$list-group-item-padding: 1rem !default;
+$list-group-item-title-padding: 0.5rem 1rem !default;
+$list-group-item-title-font-weight: bold !default;
+$list-group-item-title-background: $light-gray !default;
+$list-group-item-title-color: $dark-gray !default;
+$list-group-item-title-font-size: 0.85rem !default;
+$list-group-item-background: $white !default;
+$list-group-item-background-active: $primary-color !default;
+$list-group-item-background-disabled: $light-gray !default;
+$list-group-item-color-active: $white !default;
+$list-group-item-color-disabled: $dark-gray !default;
+$list-group-item-cursor-disabled: not-allowed !default;
+$list-group-item-border-width: 1px !default;
+$list-group-item-border-color: $light-gray !default;
+$list-group-item-border-color-active: $primary-color !default;
+$list-group-item-border-radius: $global-radius !default;
+
+@mixin n-foundation-extras-list-group {
+	.list-group {
+		@if $global-flexbox {
+			display: flex;
+			flex-direction: column;
+		}
+
+		margin: $list-group-margin;
+		padding: 0;
+	}
+
+	.list-group.rounded .list-group__item {
+		&:first-child {
+			border-top-left-radius: ($list-group-item-border-radius);
+			border-top-right-radius: ($list-group-item-border-radius);
+		}
+		&:last-child {
+			border-bottom-left-radius: ($list-group-item-border-radius);
+			border-bottom-right-radius: ($list-group-item-border-radius);
+		}
+	}
+
+	.list-group__item {
+		@if $global-flexbox {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+
+			> .list-group__item-heading,
+			> .list-group__item-text {
+				flex: 1 0 100%;
+			}
+		} @else {
+			display: block;
+		}
+
+		position: relative;
+		margin-bottom: -$list-group-item-border-width;
+		padding: $list-group-item-padding;
+		border: $list-group-item-border-width solid $list-group-item-border-color;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&.list-group__item--title {
+			padding: $list-group-item-title-padding;
+			font-size: $list-group-item-title-font-size;
+			font-weight: $list-group-item-title-font-weight;
+			color: $list-group-item-title-color;
+			background-color: $list-group-item-title-background;
+		}
+
+		&.list-group__item--seperator {
+			padding: $list-group-item-title-padding;
+			font-size: $list-group-item-title-font-size;
+			font-weight: normal;
+			color: $list-group-item-title-color;
+			background-color: lighten($list-group-item-title-background, 5%);
+		}
+
+		> .badge,
+		> .label {
+			@if $global-flexbox {
+				margin-left: auto;
+			} @else {
+				float: right;
+			}
+		}
+
+		&.disabled {
+			&,
+			&:focus,
+			&:hover {
+				color: $list-group-item-color-disabled;
+				cursor: $list-group-item-cursor-disabled;
+				background-color: $list-group-item-background-disabled;
+
+				.list-group-item-heading {
+					color: inherit;
+				}
+				.list-group-item-text {
+					color: $list-group-item-color-disabled;
+				}
+			}
+			.badge,
+			.label {
+				color: $list-group-item-background-disabled;
+				background-color: $list-group-item-color-disabled;
+			}
+		}
+
+		&.active {
+			&,
+			&:focus,
+			&:hover {
+				z-index: 2;
+				color: $list-group-item-color-active;
+				text-decoration: none;
+				background-color: $list-group-item-background-active;
+				border-color: $list-group-item-border-color-active;
+
+				.list-group-item-heading,
+				.list-group-item-heading > small,
+				.list-group-item-heading > .small {
+					color: inherit;
+				}
+				.list-group-item-text {
+					color: $list-group-item-color-active;
+				}
+			}
+
+			.badge,
+			.label {
+				color: $list-group-item-background-active;
+				background-color: $list-group-item-color-active;
+			}
+		}
+
+		&.button {
+			font-size: 1rem;
+			line-height: $global-lineheight;
+			border: none;
+			.badge,
+			.label {
+				color: $list-group-item-background-active;
+				background-color: $list-group-item-color-active;
+			}
+		}
+	}
+}
+
+@mixin n-foundation-extras-list-group-contextual-styles {
+	@include list-group-item-variant('primary', $primary-color, $white);
+	@include list-group-item-variant('secondary', $secondary-color, $white);
+	@include list-group-item-variant('success', $success-color, $white);
+	@include list-group-item-variant('info', $info-color, $white);
+	@include list-group-item-variant('warning', $warning-color, $white);
+	@include list-group-item-variant('alert', $alert-color, $white);
+}

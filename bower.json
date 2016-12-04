@@ -1,0 +1,20 @@
+{
+  "name": "n-foundation-extras",
+  "authors": [
+    "Dennis Haulund Nielsen <dhni@nodes.dk>"
+  ],
+  "description": "More Foundation!",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "foundation-sites": "^6.2.4",
+    "open-color": "^1.4.1"
+  }
+}
